@@ -1,0 +1,209 @@
+﻿
+namespace IrbisSearchEngine
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.simpleSearchPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.simpleSearchButton = new System.Windows.Forms.Button();
+            this.simpleSearchTextbox = new System.Windows.Forms.TextBox();
+            this.extendedSearchPage = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.extendedSearchButton = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tabControl.SuspendLayout();
+            this.simpleSearchPage.SuspendLayout();
+            this.extendedSearchPage.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.simpleSearchPage);
+            this.tabControl.Controls.Add(this.extendedSearchPage);
+            this.tabControl.Location = new System.Drawing.Point(12, 26);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(967, 746);
+            this.tabControl.TabIndex = 0;
+            // 
+            // simpleSearchPage
+            // 
+            this.simpleSearchPage.Controls.Add(this.tableLayoutPanel1);
+            this.simpleSearchPage.Controls.Add(this.simpleSearchButton);
+            this.simpleSearchPage.Controls.Add(this.simpleSearchTextbox);
+            this.simpleSearchPage.Location = new System.Drawing.Point(4, 24);
+            this.simpleSearchPage.Name = "simpleSearchPage";
+            this.simpleSearchPage.Padding = new System.Windows.Forms.Padding(3);
+            this.simpleSearchPage.Size = new System.Drawing.Size(959, 718);
+            this.simpleSearchPage.TabIndex = 0;
+            this.simpleSearchPage.Text = "Простой поиск";
+            this.simpleSearchPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.89273F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.10727F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 77);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(867, 41);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // simpleSearchButton
+            // 
+            this.simpleSearchButton.Location = new System.Drawing.Point(821, 27);
+            this.simpleSearchButton.Name = "simpleSearchButton";
+            this.simpleSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.simpleSearchButton.TabIndex = 1;
+            this.simpleSearchButton.Text = "Поиск";
+            this.simpleSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // simpleSearchTextbox
+            // 
+            this.simpleSearchTextbox.Location = new System.Drawing.Point(29, 28);
+            this.simpleSearchTextbox.Name = "simpleSearchTextbox";
+            this.simpleSearchTextbox.Size = new System.Drawing.Size(754, 23);
+            this.simpleSearchTextbox.TabIndex = 0;
+            // 
+            // extendedSearchPage
+            // 
+            this.extendedSearchPage.Controls.Add(this.textBox4);
+            this.extendedSearchPage.Controls.Add(this.comboBox3);
+            this.extendedSearchPage.Controls.Add(this.textBox3);
+            this.extendedSearchPage.Controls.Add(this.comboBox2);
+            this.extendedSearchPage.Controls.Add(this.extendedSearchButton);
+            this.extendedSearchPage.Controls.Add(this.textBox2);
+            this.extendedSearchPage.Controls.Add(this.comboBox1);
+            this.extendedSearchPage.Location = new System.Drawing.Point(4, 24);
+            this.extendedSearchPage.Name = "extendedSearchPage";
+            this.extendedSearchPage.Padding = new System.Windows.Forms.Padding(3);
+            this.extendedSearchPage.Size = new System.Drawing.Size(959, 718);
+            this.extendedSearchPage.TabIndex = 1;
+            this.extendedSearchPage.Text = "Расширенный поиск";
+            this.extendedSearchPage.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(190, 121);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(1080, 23);
+            this.textBox4.TabIndex = 6;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(25, 121);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(743, 23);
+            this.comboBox3.TabIndex = 5;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(190, 70);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(578, 23);
+            this.textBox3.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(25, 70);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // extendedSearchButton
+            // 
+            this.extendedSearchButton.Location = new System.Drawing.Point(806, 27);
+            this.extendedSearchButton.Name = "extendedSearchButton";
+            this.extendedSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.extendedSearchButton.TabIndex = 2;
+            this.extendedSearchButton.Text = "Поиск";
+            this.extendedSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(190, 27);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(578, 23);
+            this.textBox2.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(25, 27);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(991, 784);
+            this.Controls.Add(this.tabControl);
+            this.Name = "Form1";
+            this.Text = "Поиск в Ирбисе";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.tabControl.ResumeLayout(false);
+            this.simpleSearchPage.ResumeLayout(false);
+            this.simpleSearchPage.PerformLayout();
+            this.extendedSearchPage.ResumeLayout(false);
+            this.extendedSearchPage.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage simpleSearchPage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button simpleSearchButton;
+        private System.Windows.Forms.TextBox simpleSearchTextbox;
+        private System.Windows.Forms.TabPage extendedSearchPage;
+        private System.Windows.Forms.Button extendedSearchButton;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+    }
+}
+
