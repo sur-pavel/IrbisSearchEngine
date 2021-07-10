@@ -4,6 +4,8 @@
     <TargetFramework>.NETCoreApp,Version=v5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <Configurations>Debug;Release;ReadyToRun</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
