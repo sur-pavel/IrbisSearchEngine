@@ -8,7 +8,7 @@ namespace IrbisSearchEngine
 {
     internal class IrbisHandler
     {
-        private const string CONNECT_STRING = "server=194.169.10.3;port=8888;user=СПА;password=4209;";
+        private const string CONNECT_STRING = "server=194.169.10.3;port=8888;user=1;password=1;arm=R";
         private const string DATABASES_FILE = "DBNAM2_2.MNU";
         private readonly IrbisConnection connection;
         private Logger Logger;
