@@ -59,6 +59,7 @@ namespace IrbisSearchEngine
                 {
                     BriefDescription = GetBriefDescription(marcRecord),
                     FullDescritption = GetFullDescription(marcRecord),
+                    DatabaseName = marcRecord.Database,
                     Record = marcRecord
                 });
             }

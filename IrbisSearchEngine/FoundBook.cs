@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace IrbisSearchEngine
 {
-    class FoundBook
+    internal class FoundBook
     {
         public string BriefDescription { get; set; }
         public string FullDescritption { get; set; }
+        public string DatabaseName { get; set; }
         public MarcRecord Record { get; set; }
     }
 }
