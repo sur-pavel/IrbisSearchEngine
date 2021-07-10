@@ -10,9 +10,6 @@ namespace IrbisSearchEngine
 {
     public partial class Form1 : Form
     {
-        private MarcRecord currentRecord;
-
-        private WebBrowser webBrowser;
         private Logger logger;
         private IrbisHandler irbisHandler;
         private StringParser stringParser;

@@ -32,9 +32,6 @@ namespace IrbisSearchEngine
             this.tabControl = new System.Windows.Forms.TabControl();
             this.simpleSearchPage = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatabaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullDescritption = new System.Windows.Forms.DataGridViewLinkColumn();
             this.simpleSearchButton = new System.Windows.Forms.Button();
             this.simpleSearchTextbox = new System.Windows.Forms.TextBox();
             this.extendedSearchPage = new System.Windows.Forms.TabPage();
@@ -45,6 +42,9 @@ namespace IrbisSearchEngine
             this.extendedSearchButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatabaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullDescritption = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabControl.SuspendLayout();
             this.simpleSearchPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,6 +79,9 @@ namespace IrbisSearchEngine
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -90,39 +93,13 @@ namespace IrbisSearchEngine
             this.BriefDescription,
             this.DatabaseName,
             this.FullDescritption});
-            this.dataGridView1.Location = new System.Drawing.Point(29, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 57);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 405);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 448);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // BriefDescription
-            // 
-            this.BriefDescription.DataPropertyName = "BriefDescription";
-            this.BriefDescription.FillWeight = 111.9289F;
-            this.BriefDescription.HeaderText = "Краткое описание";
-            this.BriefDescription.Name = "BriefDescription";
-            this.BriefDescription.ReadOnly = true;
-            // 
-            // DatabaseName
-            // 
-            this.DatabaseName.DataPropertyName = "DatabaseName";
-            this.DatabaseName.FillWeight = 30F;
-            this.DatabaseName.HeaderText = "База данных";
-            this.DatabaseName.Name = "DatabaseName";
-            this.DatabaseName.ReadOnly = true;
-            // 
-            // FullDescritption
-            // 
-            this.FullDescritption.FillWeight = 50F;
-            this.FullDescritption.HeaderText = "Ссылка на полное описание";
-            this.FullDescritption.LinkColor = System.Drawing.Color.Blue;
-            this.FullDescritption.Name = "FullDescritption";
-            this.FullDescritption.ReadOnly = true;
-            this.FullDescritption.Text = "Полное описание";
-            this.FullDescritption.UseColumnTextForLinkValue = true;
             // 
             // simpleSearchButton
             // 
@@ -210,6 +187,32 @@ namespace IrbisSearchEngine
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 0;
+            // 
+            // BriefDescription
+            // 
+            this.BriefDescription.DataPropertyName = "BriefDescription";
+            this.BriefDescription.FillWeight = 111.9289F;
+            this.BriefDescription.HeaderText = "Краткое описание";
+            this.BriefDescription.Name = "BriefDescription";
+            this.BriefDescription.ReadOnly = true;
+            // 
+            // DatabaseName
+            // 
+            this.DatabaseName.DataPropertyName = "DatabaseName";
+            this.DatabaseName.FillWeight = 30F;
+            this.DatabaseName.HeaderText = "База данных";
+            this.DatabaseName.Name = "DatabaseName";
+            this.DatabaseName.ReadOnly = true;
+            // 
+            // FullDescritption
+            // 
+            this.FullDescritption.FillWeight = 35F;
+            this.FullDescritption.HeaderText = "Полное описание";
+            this.FullDescritption.LinkColor = System.Drawing.Color.Blue;
+            this.FullDescritption.Name = "FullDescritption";
+            this.FullDescritption.ReadOnly = true;
+            this.FullDescritption.Text = "Полное описание";
+            this.FullDescritption.UseColumnTextForLinkValue = true;
             // 
             // Form1
             // 
