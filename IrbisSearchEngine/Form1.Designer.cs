@@ -31,7 +31,7 @@ namespace IrbisSearchEngine
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.simpleSearchPage = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.simpleSearchButton = new System.Windows.Forms.Button();
             this.simpleSearchTextbox = new System.Windows.Forms.TextBox();
             this.extendedSearchPage = new System.Windows.Forms.TabPage();
@@ -42,8 +42,11 @@ namespace IrbisSearchEngine
             this.extendedSearchButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullDescritption = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.simpleSearchPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.extendedSearchPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +62,7 @@ namespace IrbisSearchEngine
             // 
             // simpleSearchPage
             // 
-            this.simpleSearchPage.Controls.Add(this.tableLayoutPanel1);
+            this.simpleSearchPage.Controls.Add(this.dataGridView1);
             this.simpleSearchPage.Controls.Add(this.simpleSearchButton);
             this.simpleSearchPage.Controls.Add(this.simpleSearchTextbox);
             this.simpleSearchPage.Location = new System.Drawing.Point(4, 24);
@@ -70,18 +73,30 @@ namespace IrbisSearchEngine
             this.simpleSearchPage.Text = "Простой поиск";
             this.simpleSearchPage.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // dataGridView1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.89273F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.10727F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 77);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(867, 41);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BriefDescription,
+            this.FullDescritption});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 68);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(867, 624);
+            this.dataGridView1.TabIndex = 2;
             // 
             // simpleSearchButton
             // 
@@ -170,11 +185,24 @@ namespace IrbisSearchEngine
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 0;
             // 
+            // BriefDescription
+            // 
+            this.BriefDescription.DataPropertyName = "BriefDescription";
+            this.BriefDescription.HeaderText = "Краткое описание";
+            this.BriefDescription.Name = "BriefDescription";
+            this.BriefDescription.ReadOnly = true;
+            // 
+            // FullDescritption
+            // 
+            this.FullDescritption.HeaderText = "Ссылка на полное описание";
+            this.FullDescritption.Name = "FullDescritption";
+            this.FullDescritption.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 784);
+            this.ClientSize = new System.Drawing.Size(991, 741);
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
             this.Text = "Поиск в Ирбисе";
@@ -183,6 +211,7 @@ namespace IrbisSearchEngine
             this.tabControl.ResumeLayout(false);
             this.simpleSearchPage.ResumeLayout(false);
             this.simpleSearchPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.extendedSearchPage.ResumeLayout(false);
             this.extendedSearchPage.PerformLayout();
             this.ResumeLayout(false);
@@ -193,7 +222,6 @@ namespace IrbisSearchEngine
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage simpleSearchPage;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button simpleSearchButton;
         private System.Windows.Forms.TextBox simpleSearchTextbox;
         private System.Windows.Forms.TabPage extendedSearchPage;
@@ -204,6 +232,9 @@ namespace IrbisSearchEngine
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BriefDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullDescritption;
     }
 }
 
