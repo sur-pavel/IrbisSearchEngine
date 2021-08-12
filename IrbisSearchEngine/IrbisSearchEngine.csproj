@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="ArsMagna.AOT" Version="1.9.2.2906" />
+    <PackageReference Include="ArsMagna.Windows.Forms" Version="1.9.2.2906" />
     <PackageReference Include="ManagedIrbis" Version="1.9.2.2906" />
     <PackageReference Include="NLog" Version="4.7.10" />
   </ItemGroup>

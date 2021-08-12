@@ -9,9 +9,9 @@ namespace IrbisSearchEngine
 {
     internal class FoundBook
     {
-        public string BriefDescription { get; set; }
-        public string FullDescritption { get; set; }
-        public string DatabaseName { get; set; }
-        public MarcRecord Record { get; set; }
+        public string BriefDescription { get; set; } = string.Empty;
+        public string FullDescritption { get; set; } = string.Empty;
+        public string DatabaseName { get; set; } = string.Empty;
+        public MarcRecord Record { get; set; } = new MarcRecord();
     }
 }
