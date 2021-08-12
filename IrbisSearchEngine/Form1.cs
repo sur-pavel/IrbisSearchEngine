@@ -61,6 +61,7 @@ namespace IrbisSearchEngine
                 logger.Debug("SearchTerm: " + searchTerm);
                 List<FoundBook> list = irbisHandler.SimpleSearch(searchTerm);
                 dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.RowHeadersVisible = false;
                 dataGridView1.DataSource = list;
             }
             catch (Exception ex)

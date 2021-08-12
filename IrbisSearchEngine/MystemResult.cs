@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace IrbisSearchEngine
 {
-    internal class MystemResult
+    /// <summary>
+    /// Результат анализа для одного слова.
+    /// </summary>
+    public class MystemResult
     {
         [JsonProperty("text")]
         public string Text { get; set; }

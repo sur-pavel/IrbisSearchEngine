@@ -4,10 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
- 
+
 using Newtonsoft.Json;
 
- 
 namespace IrbisSearchEngine
 {
     /// <summary>
@@ -20,20 +19,20 @@ namespace IrbisSearchEngine
         /// По умолчанию "mystem.exe".
         /// </summary>
         public string MystemPath { get; set; }
- 
+
         /// <summary>
         /// Опции, передаваемые mystem.exe.
         /// По умолчанию -i -g -d.
         /// </summary>
         public string MystemOptions { get; set; }
- 
+
         /// <summary>
         /// Кодировка, используемая при передаче.
         /// По умолчанию CP866, т. к. применяется
         /// перенаправление ввода-вывода.
         /// </summary>
         public Encoding TransferEncoding { get; set; }
- 
+
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
@@ -43,7 +42,7 @@ namespace IrbisSearchEngine
             MystemOptions = "-i -g -d";
             TransferEncoding = Encoding.GetEncoding("cp866");
         }
- 
+
         /// <summary>
         /// Разбор результатов.
         /// </summary>
@@ -54,7 +53,7 @@ namespace IrbisSearchEngine
             )
         {
             List<MystemResult> result = new List<MystemResult>();
- 
+
             string line;
             while ((line = reader.ReadLine()) != null)
             {
@@ -62,10 +61,10 @@ namespace IrbisSearchEngine
                     .DeserializeObject<MystemResult[]>(line);
                 result.AddRange(one);
             }
- 
+
             return result.ToArray();
         }
- 
+
         /// <summary>
         /// Запускает анализ текста и выдаёт результаты.
         /// </summary>
@@ -81,7 +80,7 @@ namespace IrbisSearchEngine
             commandLine.Append(" -e " +
                                TransferEncoding.HeaderName);
             commandLine.Append(" --format json");
- 
+
             ProcessStartInfo startInfo = new ProcessStartInfo
                 (
                     MystemPath,
@@ -105,9 +104,8 @@ namespace IrbisSearchEngine
                 process.WaitForExit();
                 result = DecodeResults(process.StandardOutput);
             }
- 
+
             return result;
         }
     }
 }
- 
