@@ -1,13 +1,4 @@
-/* MystemRunner.cs -- format error codes.
- * Ars Magna project, http://arsmagna.ru
- * -------------------------------------------------------
- * Status: poor
- */
- 
-#if CLASSIC
- 
-#region Using directives
- 
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,10 +7,9 @@ using System.Linq;
 using System.Text;
  
 using Newtonsoft.Json;
+
  
-#endregion
- 
-namespace AM.AOT.Stemming
+namespace IrbisSearchEngine
 {
     /// <summary>
     /// Запускает mystem.exe и разбирает результаты.
