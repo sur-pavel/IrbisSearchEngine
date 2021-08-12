@@ -1,10 +1,10 @@
 ﻿using IrbisSearchEngine.Utils;
-using ManagedIrbis;
-using ManagedIrbis.Batch;
 using NLog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using AM.Windows.Forms;
+using System.Data;
 
 namespace IrbisSearchEngine
 {
@@ -13,13 +13,15 @@ namespace IrbisSearchEngine
         private Logger logger;
         private IrbisHandler irbisHandler;
         private StringParser stringParser;
-
+        private List<FoundBook> foundBookList;
+        private BrowserForm browserForm;
         public Form1()
         {
             InitializeComponent();
             simpleSearchTextbox.KeyUp += TextBoxKeyUp;
             simpleSearchTextbox.Select();
             LogRunner logRunner = new();
+            browserForm = new BrowserForm();
             this.logger = logRunner.Logger;
             stringParser = new StringParser();
             try
@@ -35,6 +37,7 @@ namespace IrbisSearchEngine
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             simpleSearchTextbox.Text = "капитанская дочка";
             DoSimpleSearch();
         }
@@ -59,16 +62,50 @@ namespace IrbisSearchEngine
             {
                 string searchTerm = stringParser.CreateSearchTerm(simpleSearchTextbox.Text);
                 logger.Debug("SearchTerm: " + searchTerm);
-                List<FoundBook> list = irbisHandler.SimpleSearch(searchTerm);
+                foundBookList = irbisHandler.SimpleSearch(searchTerm);
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.RowHeadersVisible = false;
-                dataGridView1.DataSource = list;
+                dataGridView1.CellClick += DataGridView1_CellClick;
+                dataGridView1.DataSource = foundBookList;
             }
             catch (Exception ex)
             {
                 logger.Error(ex.Message);
                 logger.Error(ex.StackTrace);
             }
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                ShowBrowser(e);
+                //ShowRow(e);
+            }
+        }
+
+        private void ShowRow(DataGridViewCellEventArgs e)
+        {
+            string fullDescription = foundBookList[e.RowIndex].FullDescritption;
+            foundBookList.Insert(e.RowIndex, new FoundBook() 
+            {
+                BriefDescription = fullDescription
+                }
+            );
+        }
+
+        private void ShowBrowser(DataGridViewCellEventArgs e)
+        {
+                if (browserForm.IsDisposed)
+                {
+                    browserForm = new BrowserForm();
+                }
+                if (browserForm.Visible == true)
+                {
+                    browserForm.Visible = false;
+                }
+                browserForm.DocumentText = foundBookList[e.RowIndex].FullDescritption;
+                browserForm.Visible = true;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
