@@ -12,8 +12,6 @@ namespace IrbisSearchEngine
         public string BriefDescription { get; set; } = string.Empty;
         public string FullDescritption { get; set; } = string.Empty;
         public string DatabaseName { get; set; } = string.Empty;
-        public string DatabaseDescription { get; set; } = string.Empty;
-        public string MainData { get; set; } = string.Empty;
         public MarcRecord Record { get; set; } = new MarcRecord();
     }
 }
