@@ -11,6 +11,7 @@ namespace IrbisSearchEngine
     {
         private const string CONNECT_STRING = "server=194.169.10.3;port=8888;user=1;password=1;arm=R";
         private const string DATABASES_FILE = "DBNAM2_TEST.MNU";
+        private const int MAX_BATCH_SIZE = 500;
         private readonly IrbisConnection connection;
         private Logger Logger;
         private StringParser stringParser;
@@ -32,8 +33,8 @@ namespace IrbisSearchEngine
                 try
                 {
                     int[] mfns = connection.Search(searchTerm);
-                    int size = mfns.Length > 500 ? 500 : mfns.Length;
-                    BatchRecordReader reader = new BatchRecordReader(connection, databaseInfo.Name, size, mfns);
+                    int size = mfns.Length > MAX_BATCH_SIZE ? MAX_BATCH_SIZE : mfns.Length;
+                    BatchRecordReader reader = new(connection, databaseInfo.Name, size, mfns);
                     marcRecords.AddRange(reader);
                 }
                 catch (Exception ex)
@@ -58,15 +59,11 @@ namespace IrbisSearchEngine
             var list = new List<FoundBook>(marcRecords.Count);
             foreach (MarcRecord marcRecord in marcRecords)
             {
-                string dbDescription = connection.GetDatabaseInfo(marcRecord.Database).Description;
-                string fullDescription = GetFullDescription(marcRecord);
                 list.Add(new FoundBook
                 {
                     BriefDescription = GetBriefDescription(marcRecord),
-                    FullDescritption = fullDescription,
+                    FullDescritption = GetFullDescription(marcRecord),
                     DatabaseName = marcRecord.Database,
-                    DatabaseDescription = dbDescription,
-                    MainData = stringParser.GetMainData(fullDescription),
                     Record = marcRecord
                 });
             }
