@@ -29,9 +29,13 @@ namespace IrbisSearchEngine
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.simpleSearchPage = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatabaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullDescritption = new System.Windows.Forms.DataGridViewLinkColumn();
             this.simpleSearchButton = new System.Windows.Forms.Button();
             this.simpleSearchTextbox = new System.Windows.Forms.TextBox();
             this.extendedSearchPage = new System.Windows.Forms.TabPage();
@@ -42,9 +46,6 @@ namespace IrbisSearchEngine
             this.extendedSearchButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatabaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullDescritption = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabControl.SuspendLayout();
             this.simpleSearchPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,6 +89,14 @@ namespace IrbisSearchEngine
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BriefDescription,
@@ -100,6 +109,32 @@ namespace IrbisSearchEngine
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(855, 448);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // BriefDescription
+            // 
+            this.BriefDescription.DataPropertyName = "BriefDescription";
+            this.BriefDescription.FillWeight = 111.9289F;
+            this.BriefDescription.HeaderText = "Краткое описание";
+            this.BriefDescription.Name = "BriefDescription";
+            this.BriefDescription.ReadOnly = true;
+            // 
+            // DatabaseName
+            // 
+            this.DatabaseName.DataPropertyName = "DatabaseName";
+            this.DatabaseName.FillWeight = 30F;
+            this.DatabaseName.HeaderText = "База данных";
+            this.DatabaseName.Name = "DatabaseName";
+            this.DatabaseName.ReadOnly = true;
+            // 
+            // FullDescritption
+            // 
+            this.FullDescritption.FillWeight = 35F;
+            this.FullDescritption.HeaderText = "Полное описание";
+            this.FullDescritption.LinkColor = System.Drawing.Color.Blue;
+            this.FullDescritption.Name = "FullDescritption";
+            this.FullDescritption.ReadOnly = true;
+            this.FullDescritption.Text = "Полное описание";
+            this.FullDescritption.UseColumnTextForLinkValue = true;
             // 
             // simpleSearchButton
             // 
@@ -187,32 +222,6 @@ namespace IrbisSearchEngine
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 0;
-            // 
-            // BriefDescription
-            // 
-            this.BriefDescription.DataPropertyName = "BriefDescription";
-            this.BriefDescription.FillWeight = 111.9289F;
-            this.BriefDescription.HeaderText = "Краткое описание";
-            this.BriefDescription.Name = "BriefDescription";
-            this.BriefDescription.ReadOnly = true;
-            // 
-            // DatabaseName
-            // 
-            this.DatabaseName.DataPropertyName = "DatabaseName";
-            this.DatabaseName.FillWeight = 30F;
-            this.DatabaseName.HeaderText = "База данных";
-            this.DatabaseName.Name = "DatabaseName";
-            this.DatabaseName.ReadOnly = true;
-            // 
-            // FullDescritption
-            // 
-            this.FullDescritption.FillWeight = 35F;
-            this.FullDescritption.HeaderText = "Полное описание";
-            this.FullDescritption.LinkColor = System.Drawing.Color.Blue;
-            this.FullDescritption.Name = "FullDescritption";
-            this.FullDescritption.ReadOnly = true;
-            this.FullDescritption.Text = "Полное описание";
-            this.FullDescritption.UseColumnTextForLinkValue = true;
             // 
             // Form1
             // 

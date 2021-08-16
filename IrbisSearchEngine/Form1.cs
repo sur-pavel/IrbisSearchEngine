@@ -15,6 +15,7 @@ namespace IrbisSearchEngine
         private StringParser stringParser;
         private List<FoundBook> foundBookList;
         private BrowserForm browserForm;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace IrbisSearchEngine
             simpleSearchTextbox.Select();
             LogRunner logRunner = new();
             browserForm = new BrowserForm();
+
             this.logger = logRunner.Logger;
             stringParser = new StringParser();
             try
@@ -37,7 +39,7 @@ namespace IrbisSearchEngine
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             simpleSearchTextbox.Text = "капитанская дочка";
             DoSimpleSearch();
         }
@@ -66,12 +68,30 @@ namespace IrbisSearchEngine
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.RowHeadersVisible = false;
                 dataGridView1.CellClick += DataGridView1_CellClick;
+                dataGridView1.CellMouseMove += DataGridView1_CellMouseMove;
                 dataGridView1.DataSource = foundBookList;
             }
             catch (Exception ex)
             {
                 logger.Error(ex.Message);
                 logger.Error(ex.StackTrace);
+            }
+        }
+
+        private void DataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                if (e.ColumnIndex == dataGridView1.Columns["BriefDescription"].Index)
+                {
+                    string mainData = foundBookList[e.RowIndex].MainData;
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = mainData;
+                }
+                else if (e.ColumnIndex == dataGridView1.Columns["DatabaseName"].Index)
+                {
+                    string dbDescription = foundBookList[e.RowIndex].DatabaseDescription;
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = dbDescription;
+                }
             }
         }
 
@@ -87,25 +107,25 @@ namespace IrbisSearchEngine
         private void ShowRow(DataGridViewCellEventArgs e)
         {
             string fullDescription = foundBookList[e.RowIndex].FullDescritption;
-            foundBookList.Insert(e.RowIndex, new FoundBook() 
+            foundBookList.Insert(e.RowIndex, new FoundBook()
             {
                 BriefDescription = fullDescription
-                }
+            }
             );
         }
 
         private void ShowBrowser(DataGridViewCellEventArgs e)
         {
-                if (browserForm.IsDisposed)
-                {
-                    browserForm = new BrowserForm();
-                }
-                if (browserForm.Visible == true)
-                {
-                    browserForm.Visible = false;
-                }
-                browserForm.DocumentText = foundBookList[e.RowIndex].FullDescritption;
-                browserForm.Visible = true;
+            if (browserForm.IsDisposed)
+            {
+                browserForm = new BrowserForm();
+            }
+            if (browserForm.Visible == true)
+            {
+                browserForm.Visible = false;
+            }
+            browserForm.DocumentText = foundBookList[e.RowIndex].FullDescritption;
+            browserForm.Visible = true;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
