@@ -12,6 +12,7 @@ namespace IrbisSearchEngine.Utils
     {
         private IStemmer stemmer;
         public const string FIELDS_TAGS = "700, 701, 702, 200, 961, 461";
+        private const int SYMBOLS_IN_LINE = 63;
 
         public string CreateSearchTerm(string searchTerm)
         {
@@ -61,7 +62,7 @@ namespace IrbisSearchEngine.Utils
         public string GetMainData(string fullDescription)
         {
             string mainData = HtmlUtilities.ConvertToPlainText(fullDescription);
-            return mainData;
+            return Regex.Replace(mainData, ".{" + SYMBOLS_IN_LINE + "}(?!$)", "$0\n");
         }
     }
 }
