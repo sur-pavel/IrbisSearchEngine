@@ -68,30 +68,12 @@ namespace IrbisSearchEngine
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.RowHeadersVisible = false;
                 dataGridView1.CellClick += DataGridView1_CellClick;
-                dataGridView1.CellMouseMove += DataGridView1_CellMouseMove;
                 dataGridView1.DataSource = foundBookList;
             }
             catch (Exception ex)
             {
                 logger.Error(ex.Message);
                 logger.Error(ex.StackTrace);
-            }
-        }
-
-        private void DataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                if (e.ColumnIndex == dataGridView1.Columns["BriefDescription"].Index)
-                {
-                    string mainData = foundBookList[e.RowIndex].MainData;
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = mainData;
-                }
-                else if (e.ColumnIndex == dataGridView1.Columns["DatabaseName"].Index)
-                {
-                    string dbDescription = foundBookList[e.RowIndex].DatabaseDescription;
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = dbDescription;
-                }
             }
         }
 
