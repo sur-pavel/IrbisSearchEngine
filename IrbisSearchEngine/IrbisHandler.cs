@@ -3,6 +3,7 @@ using ManagedIrbis.Batch;
 using NLog;
 using System;
 using System.Collections.Generic;
+using IrbisSearchEngine.Utils;
 
 namespace IrbisSearchEngine
 {
@@ -12,11 +13,13 @@ namespace IrbisSearchEngine
         private const string DATABASES_FILE = "DBNAM2_TEST.MNU";
         private readonly IrbisConnection connection;
         private Logger Logger;
+        private StringParser stringParser;
 
         internal IrbisHandler(Logger logger)
         {
             this.Logger = logger;
             connection = new IrbisConnection(CONNECT_STRING);
+            stringParser = new StringParser();
         }
 
         internal List<FoundBook> SimpleSearch(string searchTerm)
@@ -55,11 +58,15 @@ namespace IrbisSearchEngine
             var list = new List<FoundBook>(marcRecords.Count);
             foreach (MarcRecord marcRecord in marcRecords)
             {
+                string dbDescription = connection.GetDatabaseInfo(marcRecord.Database).Description;
+                string fullDescription = GetFullDescription(marcRecord);
                 list.Add(new FoundBook
                 {
                     BriefDescription = GetBriefDescription(marcRecord),
-                    FullDescritption = GetFullDescription(marcRecord),
+                    FullDescritption = fullDescription,
                     DatabaseName = marcRecord.Database,
+                    DatabaseDescription = dbDescription,
+                    MainData = stringParser.GetMainData(fullDescription),
                     Record = marcRecord
                 });
             }
