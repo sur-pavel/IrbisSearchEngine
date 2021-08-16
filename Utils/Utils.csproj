@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="ArsMagna.AOT" Version="1.9.2.2906" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.36" />
     <PackageReference Include="NLog" Version="4.7.10" />
   </ItemGroup>
 </Project>
