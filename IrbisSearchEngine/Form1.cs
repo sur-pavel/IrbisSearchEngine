@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using AM.Windows.Forms;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace IrbisSearchEngine
 {
@@ -25,10 +26,10 @@ namespace IrbisSearchEngine
             browserForm = new BrowserForm();
 
             this.logger = logRunner.Logger;
-            stringParser = new StringParser();
             try
             {
-                irbisHandler = new IrbisHandler(logger);
+                stringParser = new StringParser(logger);
+                irbisHandler = new IrbisHandler(logger, progressBar1);
             }
             catch (Exception ex)
             {
@@ -39,7 +40,7 @@ namespace IrbisSearchEngine
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
             simpleSearchTextbox.Text = "капитанская дочка";
             DoSimpleSearch();
         }
@@ -63,7 +64,8 @@ namespace IrbisSearchEngine
             try
             {
                 string searchTerm = stringParser.CreateSearchTerm(simpleSearchTextbox.Text);
-                logger.Debug("SearchTerm: " + searchTerm);
+                var task = Task.Run(() => foundBookList = irbisHandler.SimpleSearch(searchTerm));
+                // task.Wait();
                 foundBookList = irbisHandler.SimpleSearch(searchTerm);
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.RowHeadersVisible = false;

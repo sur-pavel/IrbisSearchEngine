@@ -46,6 +46,7 @@ namespace IrbisSearchEngine
             this.extendedSearchButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tabControl.SuspendLayout();
             this.simpleSearchPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,6 +66,7 @@ namespace IrbisSearchEngine
             // 
             // simpleSearchPage
             // 
+            this.simpleSearchPage.Controls.Add(this.progressBar1);
             this.simpleSearchPage.Controls.Add(this.dataGridView1);
             this.simpleSearchPage.Controls.Add(this.simpleSearchButton);
             this.simpleSearchPage.Controls.Add(this.simpleSearchTextbox);
@@ -107,7 +109,7 @@ namespace IrbisSearchEngine
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 448);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 409);
             this.dataGridView1.TabIndex = 2;
             // 
             // BriefDescription
@@ -223,6 +225,13 @@ namespace IrbisSearchEngine
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 0;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(29, 477);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(855, 23);
+            this.progressBar1.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -261,6 +270,7 @@ namespace IrbisSearchEngine
         private System.Windows.Forms.DataGridViewTextBoxColumn BriefDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatabaseName;
         private System.Windows.Forms.DataGridViewLinkColumn FullDescritption;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

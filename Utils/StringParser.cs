@@ -1,4 +1,5 @@
-﻿using AM.AOT.Stemming;
+﻿using System;
+using AM.AOT.Stemming;
 
 using NLog;
 using System.Collections.Generic;
@@ -12,7 +13,17 @@ namespace IrbisSearchEngine.Utils
     {
         private IStemmer stemmer;
         public const string FIELDS_TAGS = "700, 701, 702, 200, 961, 461";
+        public const string INV_NUM_SEARCH_PREFIX = "IN=";
+        public const string KEYWORD_SEARCH_PREFIX = "K=";
+
+
         private const int SYMBOLS_IN_LINE = 63;
+        private Logger logger;
+
+        public StringParser(Logger logger)
+        {
+            this.logger = logger;
+        }
 
         public string CreateSearchTerm(string searchTerm)
         {
@@ -21,20 +32,41 @@ namespace IrbisSearchEngine.Utils
                 return string.Empty;
             }
             else
-            {
-                List<string> list = new();
-                searchTerm = Regex.Replace(searchTerm, @"[\p{P}\p{S}]", "");
-                foreach (string splitTerm in searchTerm.Split(' '))
-                {
-                    string word = StemmWord(splitTerm);
 
-                    list.Add($"\"K={word}$\"/()");
+            {
+
+                int invNumber = 0;
+                try
+                {                    
+
+                    invNumber = int.Parse(searchTerm);
                 }
-                searchTerm = string.Join("*", list);
-                string strongAndTerm = string.Join(" . ", list);
-                string andSameSubfieldTerm = string.Join(" (F) ", list);
-                string andSameFieldTerm = string.Join(" (G) ", list);
-                string andEverywhereTerm = string.Join(" * ", list);
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                if (invNumber > 0)
+                {
+                    searchTerm = $"\"{INV_NUM_SEARCH_PREFIX}{invNumber}$\"/()";
+                }
+                else
+                {
+                    List<string> list = new();
+
+                    searchTerm = Regex.Replace(searchTerm, @"[\p{P}\p{S}]", "");
+                    foreach (string splitTerm in searchTerm.Split(' '))
+                    {
+                        string word = StemmWord(splitTerm);
+
+                        list.Add($"\"{KEYWORD_SEARCH_PREFIX}{word}$\"/()");
+                    }
+                    searchTerm = string.Join("*", list);
+                    string strongAndTerm = string.Join(" . ", list);
+                    string andSameSubfieldTerm = string.Join(" (F) ", list);
+                    string andSameFieldTerm = string.Join(" (G) ", list);
+                    string andEverywhereTerm = string.Join(" * ", list);
+                }
+                logger.Debug("String Therm" + searchTerm);
                 return searchTerm;
             }
         }
