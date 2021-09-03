@@ -39,7 +39,9 @@ namespace IrbisSearchEngine
 
             foreach (DatabaseInfo databaseInfo in dataBaseInfos)
             {
-                connection.Database = databaseInfo.Name;
+                string dbName = databaseInfo.Name;
+                Console.WriteLine("Database Name: " + dbName);
+                connection.Database = dbName;
                 try
                 {
                     int[] mfns = connection.Search(searchTerm);
@@ -47,7 +49,7 @@ namespace IrbisSearchEngine
                     {
                         int size = mfns.Length > MAX_BATCH_SIZE ? MAX_BATCH_SIZE : mfns.Length;
                         Console.WriteLine($"Batch size: {size}");
-                        BatchRecordReader reader = new(connection, databaseInfo.Name, size, mfns);
+                        BatchRecordReader reader = new(connection, dbName, size, mfns);
                         marcRecords.AddRange(reader);
                     }
                 }
@@ -79,7 +81,7 @@ namespace IrbisSearchEngine
             foreach (MarcRecord marcRecord in marcRecords)
             {
                 inc++;
-                progressBar.Invoke(new Action(() => progressBar.Value = inc * 100 / size));
+                // progressBar.Invoke(new Action(() => progressBar.Value = inc * 100 / size));
                 list.Add(new FoundBook
                 {
                     BriefDescription = GetBriefDescription(marcRecord),

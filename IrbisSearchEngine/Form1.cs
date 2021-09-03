@@ -65,8 +65,7 @@ namespace IrbisSearchEngine
             {
                 string searchTerm = stringParser.CreateSearchTerm(simpleSearchTextbox.Text);
                 var task = Task.Run(() => foundBookList = irbisHandler.SimpleSearch(searchTerm));
-                // task.Wait();
-                foundBookList = irbisHandler.SimpleSearch(searchTerm);
+                task.Wait();                
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.RowHeadersVisible = false;
                 dataGridView1.CellClick += DataGridView1_CellClick;

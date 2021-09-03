@@ -44,6 +44,7 @@ namespace IrbisSearchEngine.Utils
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    invNumber = 0;
                 }
                 if (invNumber > 0)
                 {
