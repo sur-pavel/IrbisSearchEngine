@@ -32,10 +32,8 @@ namespace IrbisSearchEngine
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.simpleSearchPage = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatabaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullDescritption = new System.Windows.Forms.DataGridViewLinkColumn();
             this.simpleSearchButton = new System.Windows.Forms.Button();
             this.simpleSearchTextbox = new System.Windows.Forms.TextBox();
             this.extendedSearchPage = new System.Windows.Forms.TabPage();
@@ -44,9 +42,12 @@ namespace IrbisSearchEngine
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.extendedSearchButton = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.extendedSearchTextBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.BriefDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatabaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullDescritption = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabControl.SuspendLayout();
             this.simpleSearchPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,6 +79,15 @@ namespace IrbisSearchEngine
             this.simpleSearchPage.Text = "Простой поиск";
             this.simpleSearchPage.UseVisualStyleBackColor = true;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(29, 477);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(855, 23);
+            this.progressBar1.TabIndex = 3;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -88,8 +98,6 @@ namespace IrbisSearchEngine
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
@@ -102,6 +110,7 @@ namespace IrbisSearchEngine
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BriefDescription,
+            this.InvNum,
             this.DatabaseName,
             this.FullDescritption});
             this.dataGridView1.Location = new System.Drawing.Point(29, 57);
@@ -112,32 +121,6 @@ namespace IrbisSearchEngine
             this.dataGridView1.Size = new System.Drawing.Size(855, 409);
             this.dataGridView1.TabIndex = 2;
             // 
-            // BriefDescription
-            // 
-            this.BriefDescription.DataPropertyName = "BriefDescription";
-            this.BriefDescription.FillWeight = 111.9289F;
-            this.BriefDescription.HeaderText = "Краткое описание";
-            this.BriefDescription.Name = "BriefDescription";
-            this.BriefDescription.ReadOnly = true;
-            // 
-            // DatabaseName
-            // 
-            this.DatabaseName.DataPropertyName = "DatabaseName";
-            this.DatabaseName.FillWeight = 30F;
-            this.DatabaseName.HeaderText = "База данных";
-            this.DatabaseName.Name = "DatabaseName";
-            this.DatabaseName.ReadOnly = true;
-            // 
-            // FullDescritption
-            // 
-            this.FullDescritption.FillWeight = 35F;
-            this.FullDescritption.HeaderText = "Полное описание";
-            this.FullDescritption.LinkColor = System.Drawing.Color.Blue;
-            this.FullDescritption.Name = "FullDescritption";
-            this.FullDescritption.ReadOnly = true;
-            this.FullDescritption.Text = "Полное описание";
-            this.FullDescritption.UseColumnTextForLinkValue = true;
-            // 
             // simpleSearchButton
             // 
             this.simpleSearchButton.Location = new System.Drawing.Point(809, 27);
@@ -146,6 +129,7 @@ namespace IrbisSearchEngine
             this.simpleSearchButton.TabIndex = 1;
             this.simpleSearchButton.Text = "Поиск";
             this.simpleSearchButton.UseVisualStyleBackColor = true;
+            this.simpleSearchButton.Click += new System.EventHandler(this.simpleSearchButton_Click_1);
             // 
             // simpleSearchTextbox
             // 
@@ -153,6 +137,7 @@ namespace IrbisSearchEngine
             this.simpleSearchTextbox.Name = "simpleSearchTextbox";
             this.simpleSearchTextbox.Size = new System.Drawing.Size(754, 23);
             this.simpleSearchTextbox.TabIndex = 0;
+            this.simpleSearchTextbox.Text = "Введите поисковый запрос";
             // 
             // extendedSearchPage
             // 
@@ -161,7 +146,7 @@ namespace IrbisSearchEngine
             this.extendedSearchPage.Controls.Add(this.textBox3);
             this.extendedSearchPage.Controls.Add(this.comboBox2);
             this.extendedSearchPage.Controls.Add(this.extendedSearchButton);
-            this.extendedSearchPage.Controls.Add(this.textBox2);
+            this.extendedSearchPage.Controls.Add(this.extendedSearchTextBox1);
             this.extendedSearchPage.Controls.Add(this.comboBox1);
             this.extendedSearchPage.Location = new System.Drawing.Point(4, 24);
             this.extendedSearchPage.Name = "extendedSearchPage";
@@ -209,13 +194,14 @@ namespace IrbisSearchEngine
             this.extendedSearchButton.TabIndex = 2;
             this.extendedSearchButton.Text = "Поиск";
             this.extendedSearchButton.UseVisualStyleBackColor = true;
+            this.extendedSearchButton.Click += new System.EventHandler(this.extendedSearchButton_Click);
             // 
-            // textBox2
+            // extendedSearchTextBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(190, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(578, 23);
-            this.textBox2.TabIndex = 1;
+            this.extendedSearchTextBox1.Location = new System.Drawing.Point(190, 27);
+            this.extendedSearchTextBox1.Name = "extendedSearchTextBox1";
+            this.extendedSearchTextBox1.Size = new System.Drawing.Size(578, 23);
+            this.extendedSearchTextBox1.TabIndex = 1;
             // 
             // comboBox1
             // 
@@ -225,12 +211,39 @@ namespace IrbisSearchEngine
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 0;
             // 
-            // progressBar1
+            // BriefDescription
             // 
-            this.progressBar1.Location = new System.Drawing.Point(29, 477);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(855, 23);
-            this.progressBar1.TabIndex = 3;
+            this.BriefDescription.DataPropertyName = "BriefDescription";
+            this.BriefDescription.FillWeight = 111.9289F;
+            this.BriefDescription.HeaderText = "Краткое описание";
+            this.BriefDescription.Name = "BriefDescription";
+            this.BriefDescription.ReadOnly = true;
+            // 
+            // InvNum
+            // 
+            this.InvNum.DataPropertyName = "InvNum";
+            this.InvNum.FillWeight = 10F;
+            this.InvNum.HeaderText = "Инв. №";
+            this.InvNum.Name = "InvNum";
+            this.InvNum.ReadOnly = true;
+            // 
+            // DatabaseName
+            // 
+            this.DatabaseName.DataPropertyName = "DatabaseName";
+            this.DatabaseName.FillWeight = 10F;
+            this.DatabaseName.HeaderText = "База данных";
+            this.DatabaseName.Name = "DatabaseName";
+            this.DatabaseName.ReadOnly = true;
+            // 
+            // FullDescritption
+            // 
+            this.FullDescritption.FillWeight = 35F;
+            this.FullDescritption.HeaderText = "Полное описание";
+            this.FullDescritption.LinkColor = System.Drawing.Color.Blue;
+            this.FullDescritption.Name = "FullDescritption";
+            this.FullDescritption.ReadOnly = true;
+            this.FullDescritption.Text = "Полное описание";
+            this.FullDescritption.UseColumnTextForLinkValue = true;
             // 
             // Form1
             // 
@@ -260,17 +273,18 @@ namespace IrbisSearchEngine
         private System.Windows.Forms.TextBox simpleSearchTextbox;
         private System.Windows.Forms.TabPage extendedSearchPage;
         private System.Windows.Forms.Button extendedSearchButton;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox extendedSearchTextBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataGridViewTextBoxColumn BriefDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InvNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatabaseName;
         private System.Windows.Forms.DataGridViewLinkColumn FullDescritption;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
