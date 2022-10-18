@@ -32,13 +32,10 @@ namespace IrbisSearchEngine.Utils
                 return string.Empty;
             }
             else
-
             {
-
                 int invNumber = 0;
                 try
                 {                    
-
                     invNumber = int.Parse(searchTerm);
                 }
                 catch (Exception ex)

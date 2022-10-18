@@ -13,7 +13,7 @@ namespace IrbisSearchEngine
 {
     internal class IrbisHandler
     {
-        private const string CONNECT_STRING = "server=194.169.10.3;port=8888;user=1;password=1;arm=R";
+        private const string CONNECT_STRING = "server=194.169.10.3;port=8888;user=СПА;password=4209;arm=C";
         private const string DATABASES_FILE = "DBNAM2_TEST.MNU";
         private const string CALL_MESSAGE = "CALLING: ";
         private const int MAX_BATCH_SIZE = 500;
