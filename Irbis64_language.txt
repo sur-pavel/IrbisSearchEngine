@@ -1,0 +1,381 @@
+# IrbisSearchEngine
+
+explaining of irbis64 formatting language:
+
+functions and uniforms and their C# equivalents:
+
+^ - This uniform is used to change the case of text. For example, ^t will capitalize the first letter of each word in the title. In C#, you can use the ToTitleCase method of the TextInfo class to achieve the same effect.
+
+# - This uniform is used to insert a sequence number. For example, # will insert the current record number. In C#, you can use a loop to generate a sequence of numbers and insert them into the output.
+
+| - This uniform is used to insert a separator between two values. For example, |a^b will insert a space between the values of the a and b fields. In C#, you can use the String.Join method to concatenate a list of values with a separator.
+
+@ - This uniform is used to insert the current date or time. For example, @d will insert the current date in the format YYYYMMDD. In C#, you can use the DateTime.Now property to get the current date and time and format it using the ToString method.
+
+! - This uniform is used to insert a fixed value. For example, !text will insert the string "text". In C#, you can simply include the desired text in the output.
+
+? - This uniform is used to insert a conditional value. For example, ?a^b will insert the value of the a field if it exists, and the value of the b field otherwise. In C#, you can use the ternary operator (? :) to achieve the same effect.
+
+^ - This function is used to remove diacritical marks from text. For example, ^a will remove all diacritical marks from the value of the a field. In C#, you can use the String.Normalize method with the NormalizationForm.FormD option to remove diacritical marks.
+
+& - This function is used to truncate text to a certain length. For example, &10a will truncate the value of the a field to 10 characters. In C#, you can use the String.Substring method to achieve the same effect.
+
+= - This function is used to compare two values. For example, =a^b will insert the value of the a field if it is equal to the value of the b field, and nothing otherwise. In C#, you can use the == operator to compare two values.
+
+() - This function is used to group multiple functions or uniforms together. For example, (a^|b) will insert the value of the a field followed by a space and then the value of the b field. In C#, you can use parentheses to group multiple operations together.
+
+"LAST" function: This function is used to get the last character of a string. An example of using this function in C# would be:
+
+string str = "hello world";
+
+char lastChar = str[str.Length - 1];
+
+"EMPTY" function: This function is used to check if a string is empty. An example of using this function in C# would be:
+
+string str = "";
+
+bool isEmpty = string.IsNullOrEmpty(str);
+
+"REPLACE" function: This function is used to replace a substring in a string with another substring. An example of using this function in C# would be:
+
+string str = "hello world";
+
+string replacedStr = str.Replace("hello", "hi");
+
+if - this function is used to perform conditional statements in Irbis64. The equivalent in C# is the if statement.
+
+mfn - this function is used to specify the record number in Irbis64. The equivalent in C# is the int data type.
+
+format - this function is used to format a record in Irbis64. The equivalent in C# is the string.Format method.
+
+val - this function is used to extract a value from a record in Irbis64. The equivalent in C# is the string.Split method.
+
+empty - this function is used to check if a field is empty in Irbis64. The equivalent in C# is the string.IsNullOrEmpty method.
+
+lcase - this function is used to convert a string to lowercase in Irbis64. The equivalent in C# is the string.ToLower method.
+
+ucase - this function is used to convert a string to uppercase in Irbis64. The equivalent in C# is the string.ToUpper method.
+
+len - this function is used to get the length of a string in Irbis64. The equivalent in C# is the string.Length property.
+
+trim - this function is used to remove whitespace from the beginning and end of a string in Irbis64. The equivalent in C# is the string.Trim method.
+
+repeat - this function is used to repeat a string a specified number of times in Irbis64. The equivalent in C# is the string.Concat method.
+
+It's worth noting that while some of these functions have direct equivalents in C#, others may require more complex logic to achieve the same result. Additionally, some of the functions listed may not be applicable in all scenarios. As such, it's important to carefully consider the specific use case and determine the appropriate approach.
+
+formatting and processing bibliographic data, as well as for creating reports and performing other tasks related to library management.
+
+Some examples of functions in the Irbis64 format language include:
+
+ADD - adds a specified value to a field
+
+ALLTRIM - removes all leading and trailing spaces from a string
+
+AT - searches for a substring within a string
+
+CROP - removes all characters after a specified position in a string
+
+DEL - deletes a specified field or subfield from a record
+
+EMPTY - checks if a field or subfield is empty
+
+FORMAT - formats a date or time value
+
+IF - performs a conditional operation
+
+LTRIM - removes all leading spaces from a string
+
+MAX - returns the maximum value of a set of values
+
+MIN - returns the minimum value of a set of values
+
+N - converts a string to a number
+
+REPLACE - replaces a substring with another substring
+
+RTRIM - removes all trailing spaces from a string
+
+S - converts a number to a string
+
+SIZE - returns the size of a field or subfield
+
+SUBSTR - returns a substring of a string
+
+TAG - returns the tag of a field or subfield
+
+UPPERCASE - converts a string to uppercase
+
+There are many more functions available in the Irbis64 format language, and you can find a comprehensive list in the Irbis64 documentation.
+
+In terms of C# equivalents, many of the functions in the Irbis64 format language have similar counterparts in C#. For example:
+
+ADD - use the + operator to add values
+
+ALLTRIM - use the Trim() method to remove leading and trailing spaces
+
+AT - use the IndexOf() method to search for a substring
+
+DEL - use the Remove() method to delete a substring from a string
+
+EMPTY - use the String.IsNullOrEmpty() method to check if a string is empty
+
+FORMAT - use the ToString() method with a format string to format a date or time value
+
+IF - use the if statement to perform a conditional operation
+
+MAX - use the Math.Max() method to return the maximum value of a set of values
+
+MIN - use the Math.Min() method to return the minimum value of a set of values
+
+N - use the int.Parse() or double.Parse() method to convert a string to a number
+
+REPLACE - use the Replace() method to replace a substring with another substring
+
+SIZE - use the Length property to return the size of a string
+
+SUBSTR - use the Substring() method to return a substring of a string
+
+TAG - use the string.Substring() method to return the tag of a field or subfield
+
+UPPERCASE - use the string.ToUpper() method to convert a string to uppercase
+
+ for creating and manipulating bibliographic records, generating reports, and customizing user interfaces.
+
+The Irbis64 formatting language has a rich set of built-in functions and unifors, which are special commands used for formatting data. Some examples of functions and unifors in Irbis64 include:
+
+if - a conditional statement that allows you to perform different actions based on a condition.
+
+val - a function that converts a string to a numeric value.
+
+format - a function that formats a numeric value according to a specified pattern.
+
+trim - a function that removes leading and trailing whitespace from a string.
+
+upcase and lowcase - functions that convert a string to uppercase or lowercase, respectively.
+
+len - a function that returns the length of a string.
+
+replace - a function that replaces all occurrences of a substring with another substring in a string.
+
+substr - a function that extracts a substring from a string.
+
+year - a function that returns the year component of a date.
+
+today - a function that returns the current date.
+
+time - a function that returns the current time.
+
+random - a function that generates a random number.
+
+sequence - a function that generates a sequence of numbers.
+
+ifthenelse - a function that allows you to perform different actions based on a condition.
+
+left and right - functions that extract the leftmost or rightmost characters from a string, respectively.
+
+first and last - functions that return the first or last element of an array, respectively.
+
+sort - a function that sorts an array.
+
+join - a function that concatenates multiple strings into a single string.
+
+count - a function that returns the number of elements in an array.
+
+In C#, you can achieve similar functionality using various built-in classes and methods, as well as third-party libraries. Some equivalents of the above functions and unifors in C# include:
+
+if - the if statement in C#.
+
+double.Parse - a method that converts a string to a double value.
+
+string.Format - a method that formats a string according to a specified pattern.
+
+string.Trim - a method that removes leading and trailing whitespace from a string.
+
+string.ToUpper and string.ToLower - methods that convert a string to uppercase or lowercase, respectively.
+
+string.Length - a property that returns the length of a string.
+
+string.Replace - a method that replaces all occurrences of a substring with another substring in a string.
+
+string.Substring - a method that extracts a substring from a string.
+
+DateTime.Year - a property that returns the year component of a date.
+
+DateTime.Today - a property that returns the current date.
+
+DateTime.Now - a property that returns the current date and time.
+
+Random.Next - a method that generates a random number.
+
+LINQ's Enumerable.Range - a method that generates a sequence of numbers.
+
+?: operator - a ternary operator that allows you to perform different actions based on a condition.
+
+string.Substring(0, n) and string.Substring(string.Length - n) - methods that extract the leftmost or rightmost characters from a string, respectively.
+
+array[0] and array[array.Length - 1] - expressions that return the first or last element of an array, respectively.
+
+LINQ's Enumerable.OrderBy - a method that sorts an array.
+
+string.Join - a method that concatenates multiple strings into a single string.
+
+array.Length - a property that returns the number of elements in an array.
+
+their C# equivalents:
+
+A - Adds an asterisk to the beginning and end of a string.
+
+C# equivalent: string.Concat("*", inputString, "*");
+
+B - Converts a string to uppercase.
+
+C# equivalent: inputString.ToUpper();
+
+C - Converts a string to lowercase.
+
+C# equivalent: inputString.ToLower();
+
+D - Converts a date to a string in the format DD.MM.YYYY.
+
+C# equivalent: dateTime.ToString("dd.MM.yyyy");
+
+E - Converts a date to a string in the format YYYY-MM-DD.
+
+C# equivalent: dateTime.ToString("yyyy-MM-dd");
+
+F - Formats a number as a string with a specific number of decimal places.
+
+C# equivalent: number.ToString("N2"); (formats with 2 decimal places)
+
+G - Formats a number as a string with a specific number of significant figures.
+
+C# equivalent: number.ToString("N2"); (formats with 2 significant figures)
+
+H - Removes leading and trailing spaces from a string.
+
+C# equivalent: inputString.Trim();
+
+I - Reverses the order of characters in a string.
+
+C# equivalent: new string(inputString.Reverse().ToArray());
+
+J - Converts a number to a string with a specific number of digits.
+
+C# equivalent: number.ToString("D5"); (formats with 5 digits)
+
+In addition to functions, the Irbis64 system also uses UNIFORS for formatting language. According to , UNIFORS are special commands that modify the output of functions. Here are some examples of UNIFORS and their C# equivalents:
+
+^ - Removes the first character of a string.
+
+C# equivalent: inputString.Substring(1);
+
+$ - Removes the last character of a string.
+
+C# equivalent: inputString.Substring(0, inputString.Length - 1);
+
+@ - Returns the first character of a string.
+
+C# equivalent: inputString[0];
+
+= - Pads a string with a specific character to a specific length.
+
+C# equivalent: inputString.PadLeft(10, '0'); (pads with leading zeros to a length of 10)
+
+( and ) - Formats a string as a substring.
+
+C# equivalent: inputString.Substring(startIndex, length);
+
+Here are 10 examples of functions and UNIFORS in IRBIS64 along with their C# equivalents:
+
+&uf('7') - This UNIFOR returns the first seven characters of a field. The C# equivalent of this UNIFOR is string.Substring(0, 7).
+
+&uf('v0^a') - This UNIFOR returns the value of the first subfield a in the field v0. The C# equivalent of this UNIFOR is field.GetSubFieldValue("v0", "a").
+
+&uf('if') - This UNIFOR returns the current date in the format dd.mm.yyyy. The C# equivalent of this UNIFOR is DateTime.Now.ToString("dd.MM.yyyy").
+
+&uf('mf') - This UNIFOR returns the current time in the format hh:mm:ss. The C# equivalent of this UNIFOR is DateTime.Now.ToString("HH:mm:ss").
+
+&uf('ifd') - This UNIFOR returns the current date in the format yyyymmdd. The C# equivalent of this UNIFOR is DateTime.Now.ToString("yyyyMMdd").
+
+&uf('ch') - This UNIFOR removes all leading and trailing spaces from a field. The C# equivalent of this UNIFOR is field.Trim().
+
+&uf('ms') - This UNIFOR returns the number of milliseconds since midnight. The C# equivalent of this UNIFOR is DateTime.Now.TimeOfDay.TotalMilliseconds.
+
+&uf('qs') - This UNIFOR encodes a string to be used in a query. The C# equivalent of this UNIFOR is Uri.EscapeDataString(string).
+
+&uf('nz') - This UNIFOR replaces an empty field with a default value. The C# equivalent of this UNIFOR is field ?? defaultValue.
+
+&uf('rp') - This UNIFOR replaces a substring in a field with another substring. The C# equivalent of this UNIFOR is field.Replace(oldValue, newValue).
+
+[]
+
+Functions and Uniforms are an essential part of the formatting language of Irbis64. Here are ten examples of functions and uniforms used in the language, along with their C# equivalents:
+
+@brief – This function is used to display a brief description of a record. In C#, this can be achieved using the Substring function to extract a specific portion of the record.
+
+@nop – This function is used to do nothing. In C#, you can use an empty statement to achieve the same effect.
+
+@if – This function is used to check a condition and execute code if the condition is true. In C#, this can be achieved using the if-else statement.
+
+@repeat – This function is used to repeat a block of code a specified number of times. In C#, this can be achieved using a for loop.
+
+@first – This function is used to select the first record in a search. In C#, you can use the FirstOrDefault function to achieve the same effect.
+
+@last – This function is used to select the last record in a search. In C#, you can use the LastOrDefault function to achieve the same effect.
+
+@sort – This function is used to sort records based on a specified criteria. In C#, you can use the OrderBy function to achieve the same effect.
+
+@format – This function is used to format a string or a number. In C#, you can use the ToString function to achieve the same effect.
+
+@upper – This function is used to convert a string to uppercase. In C#, you can use the ToUpper function to achieve the same effect.
+
+@lower – This function is used to convert a string to lowercase. In C#, you can use the ToLower function to achieve the same effect.
+
+provides a list of functions in the Irbis64 formatting language. Here are ten examples of these functions, along with their descriptions:
+
+A - converts the argument to uppercase
+
+B - converts the argument to lowercase
+
+C - truncates the argument to the specified length
+
+D - formats the argument as a date using the specified format
+
+E - formats the argument as a time using the specified format
+
+F - formats the argument as a floating-point number using the specified format
+
+G - formats the argument as a decimal number using the specified format
+
+H - formats the argument as a hexadecimal number using the specified format
+
+I - formats the argument as a Roman numeral
+
+J - formats the argument as a string with the specified width, padding with spaces or other characters if necessary
+
+provides information on the Irbis64 formatting language as a whole. It describes the language as a tool for manipulating text, creating dictionaries, and importing/exporting data. It also provides a list of the language's built-in functions, including those mentioned in .
+
+provides information on UNIFOR, a special function in the Irbis64 formatting language that allows for more complex manipulations of text. It provides examples of UNIFOR codes and their effects.
+
+As for C# equivalents of these functions, many of them can be achieved using built-in methods in the C# language. Here are some examples:
+
+To convert a string to uppercase, use the ToUpper() method.
+
+To convert a string to lowercase, use the ToLower() method.
+
+To truncate a string to a specified length, use the Substring() method.
+
+To format a date, use the ToString() method with a specified format string.
+
+To format a time, use the ToString() method with a specified format string.
+
+To format a floating-point number, use the ToString() method with a specified format string.
+
+To format a decimal number, use the ToString() method with a specified format string.
+
+To format a hexadecimal number, use the ToString() method with the "X" format specifier.
+
+To convert a number to a Roman numeral, you can use a custom method or library.
+
+To format a string with a specified width, use the PadLeft() or PadRight() method.
