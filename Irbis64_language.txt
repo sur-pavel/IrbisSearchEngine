@@ -1,4 +1,4 @@
-# IrbisSearchEngine
+
 
 explaining of irbis64 formatting language:
 
